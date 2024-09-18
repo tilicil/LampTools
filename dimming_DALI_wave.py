@@ -43,6 +43,8 @@ print(list(map(int,val)))
 #写入序列到文件
 with open("py_DALI_Wave.c",'w',encoding= 'UTF-8') as f:
     print(list(map(int,val)),file= f)
+with open("py_DALI_Wave_hex.c",'w',encoding= 'UTF-8') as f:
+    print(list(map(lambda x: hex(int(x)), val)),file= f)
 
 # 绘制 X(n) 曲线
 plt.plot(n_values, X_values, label=r'$X(n) = 10^{\left(\frac{n-1}{\frac{253}{3}} - 1\right)}$', color='b')

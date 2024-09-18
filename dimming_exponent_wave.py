@@ -48,11 +48,15 @@ for i in x2:
     down.append( temp )
 
 
-
-
+# 合并升序和降序的点
 line = list(x1)+list(x2)
 val = list(up)+list(down)
 
+#最大值减一防止溢出
+max_val = max(val)
+for i in range(len(val)):
+    if val[i] == max_val:
+        val[i] = val[i] - 1
 
 print(line)
 print("*"*80)
@@ -61,6 +65,8 @@ print(list(map(int,val)))
 #写入序列到文件
 with open("py_exponent_Wave.c",'w',encoding= 'UTF-8') as f:
     print(list(map(int,val)),file= f)
+with open("py_exponent_Wave_hex.c",'w',encoding= 'UTF-8') as f:
+    print(list(map(lambda x: hex(int(x)), val)),file= f)
 
 #绘图
 plt.plot(line,val,"-o")
