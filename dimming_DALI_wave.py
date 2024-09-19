@@ -42,9 +42,13 @@ print(list(map(int,val)))
 
 #写入序列到文件
 with open("py_DALI_Wave.c",'w',encoding= 'UTF-8') as f:
-    print(list(map(int,val)),file= f)
+    # 先将每个值取整，再转换为字符串并组合为一个字符串
+    int_values = ', '.join(map(lambda x: str(round(x)), val))  # 对每个值取整并转换为字符串
+    f.write(int_values)  # 将结果写入文件
 with open("py_DALI_Wave_hex.c",'w',encoding= 'UTF-8') as f:
-    print(list(map(lambda x: hex(int(x)), val)),file= f)
+    # 转换为十六进制并将其格式化为字符串，不带逗号、方括号和引号
+    hex_values = ', '.join(map(lambda x: hex(int(x)), val))  # 生成格式化的字符串
+    f.write(hex_values)  # 写入文件
 
 # 绘制 X(n) 曲线
 plt.plot(n_values, X_values, label=r'$X(n) = 10^{\left(\frac{n-1}{\frac{253}{3}} - 1\right)}$', color='b')
