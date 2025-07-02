@@ -18,8 +18,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 
-#修改本变量可以更改点数，如16、32、64等
-POINT_NUM = 750
+#修改本变量可以更改点数
+POINT_NUM = 200
 
 MAX_POWER = 254
 
